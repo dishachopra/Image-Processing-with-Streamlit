@@ -64,7 +64,7 @@ def photo():
     
     st.text("Press the button below to view Canny Edge Detection Technique")
     if st.button('Canny Edge Detector'):
-        image = load_image("jerry.jpg")
+        image = load_image("cartoon.jpg")
         edges = cv2.Canny(image,50,300)
         st.image(edges,use_column_width=True,clamp=True)
       
