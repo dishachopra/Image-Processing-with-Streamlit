@@ -100,26 +100,24 @@ def video():
  
 
 def face_detection():
-    
     st.header("Face Detection using haarcascade")
-    
+
     if st.button('See Original Image'):
-        
         original = Image.open('friends.jpeg')
         st.image(original, use_column_width=True)
-    
-    
+
     image2 = cv2.imread("friends.jpeg")
+    image2_rgb = cv2.cvtColor(image2, cv2.COLOR_BGR2RGB)  # Convert image to RGB format
 
     face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-    faces = face_cascade.detectMultiScale(image2)
+    faces = face_cascade.detectMultiScale(image2_rgb)
     print(f"{len(faces)} faces detected in the image.")
+
     for x, y, width, height in faces:
-        cv2.rectangle(image2, (x, y), (x + width, y + height), color=(255, 0, 0), thickness=2)
- 
-    
-    st.image(image2, use_column_width=True,clamp = True)
-    
+        cv2.rectangle(image2_rgb, (x, y), (x + width, y + height), color=(255, 0, 0), thickness=2)
+
+    st.image(image2_rgb, use_column_width=True, clamp=True)
+
     
 def object_detection():
     
