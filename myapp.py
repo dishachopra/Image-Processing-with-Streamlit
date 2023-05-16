@@ -100,7 +100,6 @@ def video():
  
 
 def face_detection():
-    def face_detection():
     st.header("Face Detection using haarcascade")
 
     if st.button('See Original Image'):
