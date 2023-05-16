@@ -135,8 +135,8 @@ def object_detection():
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) 
     
     clock = cv2.CascadeClassifier('haarcascade_wallclock.xml')  
-    found = clock.detectMultiScale(img_gray,  
-                                   minSize =(20, 20)) 
+    found = clock.detectMultiScale(img_gray,minSize =(20, 20))   
+                                   
     amount_found = len(found)
     st.text("Detecting a clock from an image")
     if amount_found != 0:  
