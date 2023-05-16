@@ -66,7 +66,6 @@ def photo():
     if st.button('Canny Edge Detector'):
         image = load_image("jerry.jpg")
         edges = cv2.Canny(image,50,300)
-        cv2.imwrite('edges.jpg',edges)
         st.image(edges,use_column_width=True,clamp=True)
       
     y = st.slider('Change Value to increase or decrease contours',min_value = 50,max_value = 255)     
