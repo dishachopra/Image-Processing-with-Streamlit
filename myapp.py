@@ -117,8 +117,7 @@ def face_detection():
     print(f"{len(faces)} faces detected in the image.")
     for x, y, width, height in faces:
         cv2.rectangle(image2, (x, y), (x + width, y + height), color=(255, 0, 0), thickness=2)
-    
-    cv2.imwrite("faces.jpg", image2)
+ 
     
     st.image(image2, use_column_width=True,clamp = True)
     
