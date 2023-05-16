@@ -71,17 +71,17 @@ def photo():
     y = st.slider('Change Value to increase or decrease contours',min_value = 50,max_value = 255)     
     
     if st.button('Contours'):
-    im = load_image("cartoon1.jpg")
-      
-    imgray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
-    ret, thresh = cv2.threshold(imgray, y, 255, 0)
-    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    
-    img = cv2.drawContours(im.copy(), contours, -1, (0, 255, 0), 3)
-
-    st.image(thresh, use_column_width=True, clamp=True)
-    st.image(img, use_column_width=True, clamp=True)
-
+        im = load_image("cartoon1.jpg")
+          
+        imgray = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
+        ret,thresh = cv2.threshold(imgray,y,255,0)
+        image, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+        
+        img = cv2.drawContours(im, contours, -1, (0,255,0), 3)
+ 
+        
+        st.image(thresh, use_column_width=True, clamp = True)
+        st.image(img, use_column_width=True, clamp = True)
          
 
     
