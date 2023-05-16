@@ -72,7 +72,7 @@ def photo():
     y = st.slider('Change Value to increase or decrease contours',min_value = 50,max_value = 255)     
     
     if st.button('Contours'):
-        im = load_image("cartoon.jpg.jpg")
+        im = load_image("cartoon.jpg")
           
         imgray = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
         ret,thresh = cv2.threshold(imgray,y,255,0)
