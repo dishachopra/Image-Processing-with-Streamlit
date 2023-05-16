@@ -100,23 +100,38 @@ def video():
  
 
 def face_detection():
+    def face_detection():
     st.header("Face Detection using haarcascade")
 
     if st.button('See Original Image'):
         original = Image.open('friends.jpeg')
         st.image(original, use_column_width=True)
 
-    image2 = cv2.imread("friends.jpeg")
-    image2_rgb = cv2.cvtColor(image2, cv2.COLOR_BGR2RGB)  # Convert image to RGB format
+    image_filename = 'friends.jpeg'
 
-    face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-    faces = face_cascade.detectMultiScale(image2_rgb)
-    print(f"{len(faces)} faces detected in the image.")
+    # Read the image file
+    try:
+        image2 = cv2.imread(image_filename)
+        image2_rgb = cv2.cvtColor(image2, cv2.COLOR_BGR2RGB)  # Convert image to RGB format
 
-    for x, y, width, height in faces:
-        cv2.rectangle(image2_rgb, (x, y), (x + width, y + height), color=(255, 0, 0), thickness=2)
+        face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+        faces = face_cascade.detectMultiScale(image2_rgb)
+        print(f"{len(faces)} faces detected in the image.")
 
-    st.image(image2_rgb, use_column_width=True, clamp=True)
+        for x, y, width, height in faces:
+            cv2.rectangle(image2_rgb, (x, y), (x + width, y + height), color=(255, 0, 0), thickness=2)
+
+        st.image(image2_rgb, use_column_width=True, clamp=True)
+
+    except FileNotFoundError:
+        st.error("Image file not found. Please ensure the image file is located in the same directory as the script.")
+    except Exception as e:
+        st.error(f"Error occurred while processing the image: {str(e)}")
+
+
+
+
+
 
     
 def object_detection():
