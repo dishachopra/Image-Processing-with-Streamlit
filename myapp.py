@@ -126,11 +126,6 @@ def face_detection():
     
     st.image(image2, use_column_width=True,clamp = True)
 
-
-
-
-
-
     
 def object_detection():
     
@@ -140,7 +135,7 @@ def object_detection():
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) 
     
-    clock = cv2.CascadeClassifier('haarcascade_wall.xml')  
+    clock = cv2.CascadeClassifier('haarcascade_clock.xml')  
     found = clock.detectMultiScale(img_gray,minSize =(20, 20))   
                                    
     amount_found = len(found)
