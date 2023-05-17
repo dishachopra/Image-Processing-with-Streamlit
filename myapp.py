@@ -62,6 +62,12 @@ def photo():
     histr = cv2.calcHist([image],[0],None,[256],[0,256])
     st.bar_chart(histr)
     
+    
+    if st.button('Original Image of Cartoon'):
+        
+        original = Image.open('cartoon1.jpg')
+        st.image(original, use_column_width=True)
+        
     st.text("Press the button below to view Canny Edge Detection Technique")
     if st.button('Canny Edge Detector'):
         image = load_image("cartoon.jpg")
